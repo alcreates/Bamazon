@@ -1,0 +1,11 @@
+ItemID,ProductName,DepartmentName,Price,StockQuanity
+1,salsa shoes,shoe,20,10
+2,long sleeve shirt,clothing,10,20
+3,short sleeve shirt,clothing,5,30
+4,timberlands,shoe,120,30
+5,nike’s,shoe,60,30
+6,flannel shirt,clothing,35,50
+7,red wine,food,20,30
+8,white wine,food,15,30
+9,steak,food,10,50
+10,fish,food,10,60

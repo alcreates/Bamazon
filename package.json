@@ -1,0 +1,28 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "The application will take orders from customers and deplete from the store's total supplies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alcreates/Bamazon.git"
+  },
+  "keywords": [
+    "shop",
+    "till",
+    "you",
+    "drop"
+  ],
+  "author": "Alvaro Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alcreates/Bamazon/issues"
+  },
+  "homepage": "https://github.com/alcreates/Bamazon#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
