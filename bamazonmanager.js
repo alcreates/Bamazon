@@ -1,6 +1,7 @@
 var colors = require('colors');
 var prompt = require('prompt');
 var mysql = require('mysql');
+var itemNumber = 11;
 
 var connection = mysql.createConnection({
      host     : 'localhost', //for now, this will always be localhost
@@ -32,6 +33,8 @@ function manager(){
     		lowInventory();
     	}else if (result.selection ==3){
     		addInventory();
+    	}else if(result.selection == 4){
+    		addNewItem();
     	}
     
   });
@@ -92,6 +95,18 @@ function addInventory(){
 
 		
 	});
+}
+
+function addNewItem(){
+	console.log('Welcome. To add a new item follow the prompt');
+	prompt.start();
+	prompt.get(['ProductName','DeparmentName','Price','StockQuantity'],function(err,result){
+	connection.query("INSERT INTO Bamazon.Products (ProductName, DeparmentName, Price , StockQuantity ) VALUES ('" + result.ProductName+"','" + result.DeparmentName +"','" + result.Price + "','" + result.StockQuantity +"')");
+	itemNumber+=1
+	});
+
+//ProductName DeparmentName Price StockQuantity
+//	connection.query("INSERT INTO Bamazon.Products VALUES "(value1,value2,value3,...));
 }
 
 
