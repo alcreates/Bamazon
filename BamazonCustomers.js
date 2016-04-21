@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var prompt = require('prompt');
 var color = require('colors');
+var pad = require('pad');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -8,6 +9,9 @@ var connection = mysql.createConnection({
 	database: 'bamazon'
 
 });
+// to use. 
+//process.stdout.write();
+//pad npm package;
 
 connection.connect(function(err){
 	if(err){
@@ -26,15 +30,21 @@ function bamazon(){
 	connection.query("SELECT * FROM Bamazon.Products WHERE  StockQuantity > 0 ", function(err, results){
 		if(err) throw err;
 		console.log("Bamazon.com's current selection---".underline.red);
+		process.stdout.write(pad("Id", 8));
+		process.stdout.write(pad("Product",18));
+		process.stdout.write(pad("Deparment",12));
+		process.stdout.write(pad("Price", 8));
+		process.stdout.write(pad("StockQuantity"));
+		process.stdout.write("\n");
 		
 		for (var i = 0; i < results.length; i++) {
-			console.log("Id: " + results[i].ItemID);
-			console.log("Product: " + results[i].ProductName);
-			console.log("Deparment: " + results[i].DeparmentName);
-			console.log("Price: $" + results[i].Price);
-			console.log("StockQuantity: " + results[i].StockQuantity);
-			console.log("---------------------------------------------".green);
-			console.log("\n");
+			process.stdout.write(" " + pad(results[i].ItemID.toString(),6));
+			process.stdout.write(" " + pad(results[i].ProductName,18));
+			process.stdout.write(" " + pad(results[i].DeparmentName,12));
+			process.stdout.write(" " + results[i].Price);
+			process.stdout.write(" " + results[i].StockQuantity);
+			process.stdout.write("---------------------------------------------".green);
+			process.stdout.write("\n");
 		}
 	
 	var orderedId = null;

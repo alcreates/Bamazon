@@ -1,7 +1,7 @@
 var colors = require('colors');
 var prompt = require('prompt');
 var mysql = require('mysql');
-var itemNumber = 11;
+
 
 var connection = mysql.createConnection({
      host     : 'localhost', //for now, this will always be localhost
@@ -102,7 +102,7 @@ function addNewItem(){
 	prompt.start();
 	prompt.get(['ProductName','DeparmentName','Price','StockQuantity'],function(err,result){
 	connection.query("INSERT INTO Bamazon.Products (ProductName, DeparmentName, Price , StockQuantity ) VALUES ('" + result.ProductName+"','" + result.DeparmentName +"','" + result.Price + "','" + result.StockQuantity +"')");
-	itemNumber+=1
+	
 	});
 
 //ProductName DeparmentName Price StockQuantity
